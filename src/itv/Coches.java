@@ -22,6 +22,12 @@ public class Coches {
         this.tipo=ti;
     }
     
+    public Coches(Coches co){
+        this.matricula=co.getMatricula();
+        this.modelo=co.getModelo();
+        this.tipo=co.getTipo();
+    }
+    
     //Métodos
     public String getMatricula(){
         return this.matricula;
