@@ -19,12 +19,6 @@ public class ITV {
         
         //El taller tiene 6 boxes
         //
-        //Una revisión pasa por cuatro fases:
-        //1-Revisión de elementos de seguridad
-        //2-Revisión del sistema eléctrico
-        //3-Revisión de emisión de humos
-        //4-Revisión de frenos y dirección
-        //
         //Se debe poner una opción que permita mover todos los vehículos de un box a la siguiente fase de revisión (se presupone que todos pueden pasar)
         //Cuando un vehículo entra al taller se le toma matrícula (4 números y 3 letras), modelo y tipo enum(microbús, furgoneta o camión) matrícula actúa como clave y se mete directamente en la cola general
         //La cola no es un box, y de la cosa se pasa directamente a las fases de revisión de un box siempre y cuando no esté lleno.
