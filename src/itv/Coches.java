@@ -37,7 +37,7 @@ public class Coches {
     
     @Override
     public String toString(){
-        return "Matrícula: "+this.matricula+" Modelo: "+this.modelo+" tipo: "+this.tipo;
+        return "Matrícula: "+this.matricula+" Modelo: "+this.modelo+" Tipo: "+this.tipo;
     }
     
 }
