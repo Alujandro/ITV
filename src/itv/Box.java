@@ -21,11 +21,18 @@ public class Box {
     //Métodos
     public void avanzar(){
         for (int i=0; i<this.boxe.length-1; i++){
-            this.boxe[i+1]=this.boxe[i];
+            this.boxe[i+1]=new Coches(this.boxe[i]);
         }
+        this.boxe[0]=null;
     }
     
     public String getVehiculo(int i){
         return boxe[i].toString();
+    }
+    
+    public void setVehiculoNuevo(Coches c){
+        if (this.boxe[0]==null){
+            this.boxe[0]=new Coches(c);
+        }
     }
 }
