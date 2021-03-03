@@ -21,7 +21,7 @@ public class ITV {
         //
         //Se debe poner una opción que permita mover todos los vehículos de un box a la siguiente fase de revisión (se presupone que todos pueden pasar)
         //Cuando un vehículo entra al taller se le toma matrícula (4 números y 3 letras), modelo y tipo enum(microbús, furgoneta o camión) matrícula actúa como clave y se mete directamente en la cola general
-        //La cola no es un box, y de la cosa se pasa directamente a las fases de revisión de un box siempre y cuando no esté lleno.
+        //La cola no es un box, y de la cola se pasa directamente a las fases de revisión de un box siempre y cuando no esté lleno.
         //
         //Opciones del menú:
         //1-Alta y recepción de vehículos
