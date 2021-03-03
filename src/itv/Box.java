@@ -12,10 +12,11 @@ package itv;
 public class Box {
     //Atributos
     private final Coches[] boxe;
+    private static final int FASES=4;
     
     //Constructores
     public Box(){
-        this.boxe=new Coches[6];
+        this.boxe=new Coches[FASES];
     }
     
     //Métodos
@@ -33,6 +34,16 @@ public class Box {
     public void setVehiculoNuevo(Coches c){
         if (this.boxe[0]==null){
             this.boxe[0]=new Coches(c);
+        }
+    }
+    
+    public void mostrarBox(){
+        for (int i=0; i<boxe.length; i++){
+            if (boxe[i]!=null){
+                System.out.println("Fase "+i+": "+boxe[i].toString());
+            } else {
+                System.out.println("Fase "+i+": Vacío");
+            }
         }
     }
 }
