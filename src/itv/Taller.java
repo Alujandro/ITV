@@ -125,12 +125,11 @@ public class Taller {
     }
     
     public boolean sinBoxLibre(){
-        int total=0;
         for (int i=0; i<this.todas.length; i++){
             if (this.todas[i]==null){
-                total++;
+                return false;
             }
         }
-        return total==this.todas.length;
+        return true;
     }
 }
