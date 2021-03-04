@@ -69,18 +69,22 @@ public class Coches {
         this.tipo=TIPOS[i-1];
     }
     
-    public void llenaCoche(){
+    //LLENA COCHE DEBE DEVOLVER UN OBJETO COCHE PARA PODER HACER UNO NUEVO SIN COMPLICACIONES
+    public Coches llenaCoche(){
         Scanner enter=new Scanner(System.in);
         GestorIO nume=new GestorIO();
+        String matri;
+        String mode;
+        String tip;
         int num;
         String entrar=null;
         System.out.print("Introduce la matrícula: ");
         while (!matriculaValida(entrar=enter.nextLine())){
             System.out.print("Intoduzca una matrícula válida: ");
         }
-        this.setMatricula(entrar);
+        matri=entrar;
         System.out.print("Introduce el modelo: ");
-        this.setModelo(enter.nextLine());
+        mode=enter.nextLine();
         System.out.print("Introduce el tipo [1-Microbús, 2-Furgoneta, 3-Camión]: ");
         while (true){
             num=nume.inInt();
@@ -90,7 +94,9 @@ public class Coches {
                 break;
             }
         }
-        this.setTipo(num);
+        tip=TIPOS[num];
+        
+        return new Coches(matri,mode,tip);
     }
     @Override
     public String toString(){
