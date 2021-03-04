@@ -79,6 +79,10 @@ public class Taller {
             case 2:
                 //Código
                 while (true){
+                    if (sinBoxLibre()){
+                        System.out.println("No quedan Boxes libres");
+                        break;
+                    }
                     i=numeroValido();
                     if (!cola.meterEnBox(todas[i])){
                         System.out.println("Box ocupado.");
@@ -118,5 +122,15 @@ public class Taller {
             System.out.println("Box "+i+": ");
             this.todas[i].mostrarBox();
         }
+    }
+    
+    public boolean sinBoxLibre(){
+        int total=0;
+        for (int i=0; i<this.todas.length; i++){
+            if (this.todas[i]==null){
+                total++;
+            }
+        }
+        return total==this.todas.length;
     }
 }
