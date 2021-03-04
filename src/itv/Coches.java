@@ -53,7 +53,7 @@ public class Coches {
         return this.tipo;
     }
     
-    public boolean matriculaValida(String mat){
+    public static boolean matriculaValida(String mat){
         return Pattern.matches(PATRON, mat);
     }
     
@@ -70,7 +70,7 @@ public class Coches {
     }
     
     //LLENA COCHE DEBE DEVOLVER UN OBJETO COCHE PARA PODER HACER UNO NUEVO SIN COMPLICACIONES
-    public Coches llenaCoche(){
+    public static Coches llenaCoche(){
         Scanner enter=new Scanner(System.in);
         GestorIO nume=new GestorIO();
         String matri;
