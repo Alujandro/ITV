@@ -38,13 +38,20 @@ public class ColaGeneral {
         }
     }
     
-    public void meterEnBox(Box b){
-        if (b.getVehiculo(0)==null){
-            b.setVehiculoNuevo(this.cola[0]);
-            this.avanzar();
-            System.out.println("Operación realizada con éxito");
+    public boolean meterEnBox(Box b){
+        if (this.getSiguiente()==null){
+            System.out.println("La cola de entrada está vacía");
+            return true;
         } else {
-            System.out.println("No hay hueco en el Box");
+            if (b.getVehiculo(0)==null){
+                b.setVehiculoNuevo(this.cola[0]);
+                this.avanzar();
+                System.out.println("Operación realizada con éxito");
+                return true;
+            } else {
+                System.out.println("No hay hueco en el Box");
+                return false;
+            }
         }
     }
 }
