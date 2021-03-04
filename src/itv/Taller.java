@@ -13,10 +13,12 @@ import itv.util.GestorIO;
 public class Taller {
     //Atributos
     public final Box[] todas;
+    public final ColaGeneral cola;
     
     //Constructores
     public Taller(){
         this.todas=new Box[6];
+        this.cola=new ColaGeneral();
     }
     
     //Métodos
@@ -36,41 +38,78 @@ public class Taller {
         System.out.println("5-Información de todos los boxes");
         System.out.println("6-Salir del programa");
         System.out.println("Introduce una opción [1-6]: ");
+        
+        boolean salida=false;
+        while(!salida){
+            salida=opcion(numeroValido());
+        }
+    }
+    
+    public int numeroValido(){
         GestorIO menu=new GestorIO();
         int opcion;
         while (true){
             opcion=menu.inInt();
             if (opcion<=6 && 1<=opcion){
-                opcion(opcion);
-                break;
+                return opcion;
             }
             System.out.print("Introduce un número [1-6]: ");
         }
     }
+    public int numeroValidoDos(){
+        GestorIO menu=new GestorIO();
+        int opcion;
+        while (true){
+            opcion=menu.inInt();
+            if (opcion<=4 && 1<=opcion){
+                return opcion;
+            }
+            System.out.print("Introduce un número [1-4]: ");
+        }
+    }
     
-    public void opcion(int num){
+    public boolean opcion(int num){
+        int i;
+        int j;
         switch (num) {
             case 1:
                 //Código
-                break;
+                cola.setCoche(Coches.llenaCoche());
+                return false;
             case 2:
                 //Código
-                break;
+                i=numeroValido();
+                cola.meterEnBox(todas[i]);
+                return false;
             case 3:
                 //Código
-                break;
+                i=numeroValido();
+                todas[i].avanzar();
+                return false;
             case 4:
                 //Código
-                break;
+                i=numeroValido();
+                j=numeroValidoDos();
+                todas[i].getVehiculo(j);
+                return false;
             case 5:
                 //Código
-                break;
+                muestraBoxes();
+                return false;
             case 6:
                 //Código
-                break;
+                System.out.println("Programa Finalizado");
+                return true;
             default:
                 System.out.println("ERROR");
-                break;
+                return false;
+        }
+    }
+    
+    public void muestraBoxes(){
+        for (int i=0; i<this.todas.length; i++){
+            System.out.println("Box "+i+": ");
+            this.todas[i].mostrarBox();
         }
     }
 }
