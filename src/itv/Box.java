@@ -13,6 +13,7 @@ public class Box {
     //Atributos
     private final Coches[] boxe;
     private static final int FASES=4;
+    //private static final String listaFases[]= {"Revisión de seguridad","Revisión sistema eléctrico","Revisión de humos","Revisión de frenos y dirección"};
     
     //Constructores
     public Box(){
