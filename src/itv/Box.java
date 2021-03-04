@@ -26,6 +26,7 @@ public class Box {
             this.boxe[i+1]=new Coches(this.boxe[i]);
         }
         this.boxe[0]=null;
+        System.out.println("Cambio de fase completado");
     }
     
     public String getVehiculo(int i){
