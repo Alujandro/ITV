@@ -24,6 +24,7 @@ public class ColaGeneral {
         for (int i=0; i<this.cola.length; i++){
             this.cola[i]=this.cola[i+1];
         }
+        System.out.println("La cola ha avanzado de forma satisfactoria");
     }
     
     public Coches getSiguiente(){
@@ -41,6 +42,7 @@ public class ColaGeneral {
         if (b.getVehiculo(0)==null){
             b.setVehiculoNuevo(this.cola[0]);
             this.avanzar();
+            System.out.println("Operación realizada con éxito");
         } else {
             System.out.println("No hay hueco en el Box");
         }
