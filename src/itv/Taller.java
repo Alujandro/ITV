@@ -30,17 +30,17 @@ public class Taller {
     }
     
     public void menu(){
-        System.out.println("ITV talleres Parodi");
-        System.out.println("1-Alta y recepción de vehículos");
-        System.out.println("2-Reclamar vehículo para box");
-        System.out.println("3-Avanzar box de fase");
-        System.out.println("4-Información de box");
-        System.out.println("5-Información de todos los boxes");
-        System.out.println("6-Salir del programa");
-        System.out.println("Introduce una opción [1-6]: ");
-        
+              
         boolean salida=false;
         while(!salida){
+            System.out.println("ITV talleres Parodi");
+            System.out.println("1-Alta y recepción de vehículos");
+            System.out.println("2-Reclamar vehículo para box");
+            System.out.println("3-Avanzar box de fase");
+            System.out.println("4-Información de box");
+            System.out.println("5-Información de todos los boxes");
+            System.out.println("6-Salir del programa");
+            System.out.println("Introduce una opción [1-6]: ");
             salida=opcion(numeroValido());
         }
     }
@@ -78,8 +78,15 @@ public class Taller {
                 return false;
             case 2:
                 //Código
-                i=numeroValido();
-                cola.meterEnBox(todas[i]);
+                while (true){
+                    i=numeroValido();
+                    if (!cola.meterEnBox(todas[i])){
+                        System.out.println("Box ocupado.");
+                    } else {
+                        System.out.println("Operación realizada con éxito");
+                        break;
+                    }
+                }
                 return false;
             case 3:
                 //Código
