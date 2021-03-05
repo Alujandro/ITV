@@ -36,13 +36,14 @@ public class Taller {
               
         boolean salida=false;
         while(!salida){
-            System.out.println("\nITV talleres Parodi");
+            System.out.println("\nITV");
+            System.out.println("--------------------------------");
             System.out.println("1-Alta y recepción de vehículos");
             System.out.println("2-Reclamar vehículo para box");
             System.out.println("3-Avanzar box de fase");
             System.out.println("4-Información de box");
             System.out.println("5-Información de todos los boxes");
-            System.out.println("6-Salir del programa");
+            System.out.println("6-Salir del programa\n");
             System.out.print("Introduce una opción [1-6]: ");
             salida=opcion(numeroValido());
         }
