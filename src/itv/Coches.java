@@ -18,7 +18,7 @@ public class Coches {
     private String matricula;
     private String modelo;
     private String tipo;
-    public static final String PATRON="//d{4}[A-Z]{3}";
+    public static final String PATRON="\\d{4}[A-Z]{3}";
     public static final String[] TIPOS={"Microbús","Furgoneta","Camión"};
     
     //Constructores
@@ -77,10 +77,12 @@ public class Coches {
         String mode;
         String tip;
         int num;
-        String entrar=null;
+        String entrar;
         System.out.print("Introduce la matrícula: ");
-        while (!matriculaValida(entrar=enter.nextLine())){
+        entrar=enter.nextLine();
+        while (!matriculaValida(entrar)){
             System.out.print("Intoduzca una matrícula válida: ");
+            entrar=enter.nextLine();
         }
         matri=entrar;
         System.out.print("Introduce el modelo: ");
@@ -94,7 +96,7 @@ public class Coches {
                 break;
             }
         }
-        tip=TIPOS[num];
+        tip=TIPOS[num-1];
         
         return new Coches(matri,mode,tip);
     }
