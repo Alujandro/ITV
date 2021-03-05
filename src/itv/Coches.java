@@ -29,9 +29,11 @@ public class Coches {
     }
     
     public Coches(Coches co){
-        this.matricula=co.getMatricula();
-        this.modelo=co.getModelo();
-        this.tipo=co.getTipo();
+        if (co!=null){
+            this.matricula=co.getMatricula();
+            this.modelo=co.getModelo();
+            this.tipo=co.getTipo();
+        }
     }
     
     public Coches(){
@@ -42,14 +44,23 @@ public class Coches {
     
     //Métodos
     public String getMatricula(){
+        if (this.matricula==null){
+            return null;
+        }
         return this.matricula;
     }
     
     public String getModelo(){
+        if (this.modelo==null){
+            return null;
+        }
         return this.modelo;
     }
     
     public String getTipo(){
+        if (this.tipo==null){
+            return null;
+        }
         return this.tipo;
     }
     
