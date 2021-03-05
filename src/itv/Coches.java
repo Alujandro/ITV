@@ -33,6 +33,8 @@ public class Coches {
             this.matricula=co.getMatricula();
             this.modelo=co.getModelo();
             this.tipo=co.getTipo();
+        } else {
+            System.out.println("El vehículo es null");
         }
     }
     
