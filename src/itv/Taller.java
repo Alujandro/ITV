@@ -19,8 +19,7 @@ public class Taller {
     public Taller(){
         this.todas=new Box[6];
         for (int i=0; i<this.todas.length; i++){
-            this.todas[i]=new Box();
-            
+            this.todas[i]=new Box();   
         }
         this.cola=new ColaGeneral();
     }
