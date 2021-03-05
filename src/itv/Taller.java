@@ -131,7 +131,7 @@ public class Taller {
     
     public boolean sinBoxLibre(){
         for (int i=0; i<this.todas.length; i++){
-            if (this.todas[i]==null){
+            if (this.todas[i].getVehiculo(0)==null){
                 return false;
             }
         }
