@@ -101,6 +101,7 @@ public class Taller {
                 //Código
                 i=numeroValido();
                 todas[i].avanzar();
+                System.out.println("La cola ha avanzado de forma satisfactoria");
                 return false;
             case 4:
                 //Código
