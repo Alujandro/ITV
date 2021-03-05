@@ -56,7 +56,6 @@ public class ColaGeneral {
             } else {
                 b.setVehiculoNuevo(this.cola[0]);
                 this.avanzar();
-                System.out.println("Operación realizada con éxito");
                 return true;
             }
         }
