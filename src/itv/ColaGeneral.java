@@ -26,8 +26,13 @@ public class ColaGeneral {
     public void avanzar(){
         this.cola[cola.length-1]=null;
         for (int i=0; i<this.cola.length-1; i++){
-            this.cola[i]=this.cola[i+1];
+            if (this.cola[i]==null){
+                this.cola[i-1]=null;
+                break;
+            }
+            this.cola[i]=new Coches(this.cola[i+1]);
         }
+        this.cola[TOTAL-1]=null;
     }
     
     public Coches getSiguiente(){
