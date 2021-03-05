@@ -12,12 +12,13 @@ package itv;
 public class Box {
     //Atributos
     private final Coches[] boxe;
-    private static final int FASES=4;
+    public static final int FASES=4;
     //private static final String listaFases[]= {"Revisión de seguridad","Revisión sistema eléctrico","Revisión de humos","Revisión de frenos y dirección"};
     
     //Constructores
     public Box(){
         this.boxe=new Coches[FASES];
+        this.aNull();
     }
     
     //Métodos
@@ -29,14 +30,18 @@ public class Box {
         System.out.println("Cambio de fase completado");
     }
     
-    public String getVehiculo(int i){
-        return boxe[i].toString();
+    public Coches getVehiculo(int i){ 
+        return boxe[i];
+    }
+    
+    public final void aNull(){
+        for (int i=0; i<this.boxe.length; i++){
+            this.boxe[i]=null;
+        }
     }
     
     public void setVehiculoNuevo(Coches c){
-        if (this.boxe[0]==null){
-            this.boxe[0]=new Coches(c);
-        }
+        this.boxe[0]=new Coches(c);
     }
     
     public void mostrarBox(){
