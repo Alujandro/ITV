@@ -28,7 +28,6 @@ public class ColaGeneral {
         for (int i=0; i<this.cola.length-1; i++){
             this.cola[i]=this.cola[i+1];
         }
-        System.out.println("La cola ha avanzado de forma satisfactoria");
     }
     
     public Coches getSiguiente(){
