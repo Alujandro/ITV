@@ -18,6 +18,10 @@ public class Taller {
     //Constructores
     public Taller(){
         this.todas=new Box[6];
+        for (int i=0; i<this.todas.length; i++){
+            this.todas[i]=new Box();
+            
+        }
         this.cola=new ColaGeneral();
     }
     
@@ -40,7 +44,7 @@ public class Taller {
             System.out.println("4-Información de box");
             System.out.println("5-Información de todos los boxes");
             System.out.println("6-Salir del programa");
-            System.out.println("Introduce una opción [1-6]: ");
+            System.out.print("Introduce una opción [1-6]: ");
             salida=opcion(numeroValido());
         }
     }
@@ -83,6 +87,7 @@ public class Taller {
                         System.out.println("No quedan Boxes libres");
                         break;
                     }
+                    System.out.print("Introduce un número de box [1-6]");
                     i=numeroValido();
                     if (!cola.meterEnBox(todas[i])){
                         System.out.println("Box ocupado.");
@@ -119,7 +124,7 @@ public class Taller {
     
     public void muestraBoxes(){
         for (int i=0; i<this.todas.length; i++){
-            System.out.println("Box "+i+": ");
+            System.out.println("Box "+(i+1)+": ");
             this.todas[i].mostrarBox();
         }
     }
