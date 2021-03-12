@@ -18,7 +18,7 @@ public class Taller {
     //Constructores
     public Taller(){
         this.todas=new Box[6];
-        for (int i=0; i<this.todas.length; i++){ //Esto no se me va a olvidar en la vida, 3 días para darme cuenta
+        for (int i=0; i<this.todas.length; i++){ //Esto no se me va a olvidar en la vida, 3 días para darme cuenta y una semana solucionando errores
             this.todas[i]=new Box();   
         }
         this.cola=new ColaGeneral();
