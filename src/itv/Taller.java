@@ -45,7 +45,7 @@ public class Taller {
             System.out.println("5-Información de todos los boxes");
             System.out.println("6-Salir del programa\n");
             System.out.print("Introduce una opción [1-6]: ");
-            salida=opcion(numeroValido());
+            salida=opcion(numeroValido()+1);
         }
     }
     
@@ -55,7 +55,7 @@ public class Taller {
         while (true){
             opcion=menu.inInt();
             if (opcion<=6 && 1<=opcion){
-                return opcion;
+                return (opcion-1);
             }
             System.out.print("Introduce un número [1-6]: ");
         }
@@ -66,7 +66,7 @@ public class Taller {
         while (true){
             opcion=menu.inInt();
             if (opcion<=4 && 1<=opcion){
-                return opcion;
+                return (opcion-1);
             }
             System.out.print("Introduce un número [1-4]: ");
         }
@@ -74,11 +74,10 @@ public class Taller {
     
     public boolean opcion(int num){
         int i;
-        int j;
         switch (num) {
             case 1:
                 //Código
-                cola.setCoche(Coches.llenaCoche());
+                cola.setCoche(Coches.llenaCoche(this));
                 return false;
             case 2:
                 //Código
@@ -89,25 +88,27 @@ public class Taller {
                     }
                     System.out.print("Introduce un número de box [1-6]: ");
                     i=numeroValido();
-                    if (!cola.meterEnBox(todas[i-1])){
+                    if (!cola.meterEnBox(todas[i])){
                         System.out.println("Box ocupado.");
                     } else {
+                        System.out.println("Operación realizada");
                         break;
                     }
-                    System.out.println("Operación realizada con éxito");
+                    
                 }
                 return false;
             case 3:
                 //Código
+                System.out.print("Introduce una box para avanzar [1-6]");
                 i=numeroValido();
                 todas[i].avanzar();
                 System.out.println("La cola ha avanzado de forma satisfactoria");
                 return false;
             case 4:
                 //Código
+                System.out.print("Introduce un número de Box: ");
                 i=numeroValido();
-                j=numeroValidoDos();
-                todas[i].getVehiculo(j);
+                todas[i].mostrarBox();
                 return false;
             case 5:
                 //Código
@@ -132,10 +133,27 @@ public class Taller {
     
     public boolean sinBoxLibre(){
         for (int i=0; i<this.todas.length; i++){
-            if (this.todas[i].getVehiculo(0)==null){
+            if (this.todas[i].getVehiculo(0).getMatricula()==null){
                 return false;
             }
         }
         return true;
+    }
+    
+    public boolean matriculaRepe(String mat){
+        for (int i=0; i<cola.getTOTAL(); i++){
+            if (mat.equals(cola.getSiguiente().getMatricula())){
+                return true;
+            }
+        }
+        
+        for (int i=0; i<todas.length; i++){
+            for (int j=0; j<todas[i].getBoxe().length; j++){
+                if (mat.equals(todas[i].getVehiculo(j).getMatricula())){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
