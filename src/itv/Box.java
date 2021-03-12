@@ -23,10 +23,13 @@ public class Box {
     
     //Métodos
     public void avanzar(){
-        for (int i=0; i<this.boxe.length-1; i++){
-            this.boxe[i+1]=new Coches(this.boxe[i]);
+        for (int i=this.boxe.length-1; i>0; i--){
+            if (this.boxe[i-1]==null){
+                this.boxe[i]=new Coches();
+            }
+            this.boxe[i]=new Coches(this.boxe[i-1]);
         }
-        this.boxe[0]=null;
+        this.boxe[0]=new Coches();
         System.out.println("Cambio de fase completado");
     }
     
@@ -34,9 +37,13 @@ public class Box {
         return boxe[i];
     }
     
+    public Coches[] getBoxe(){
+        return this.boxe;
+    }
+    
     public final void aNull(){
         for (int i=0; i<this.boxe.length; i++){
-            this.boxe[i]=null;
+            this.boxe[i]=new Coches();
         }
     }
     
@@ -47,9 +54,13 @@ public class Box {
     public void mostrarBox(){
         for (int i=0; i<boxe.length; i++){
             if (boxe[i]!=null){
-                System.out.println("Fase "+i+": "+boxe[i].toString());
+                if (boxe[i].getMatricula()==null){
+                    System.out.println("Fase "+(i+1)+": Vacío");
+                } else {
+                    System.out.println("Fase "+(i+1)+": "+boxe[i].toString());
+                }
             } else {
-                System.out.println("Fase "+i+": Vacío");
+                System.out.println("Fase "+(i+1)+": Vacío");
             }
         }
     }
