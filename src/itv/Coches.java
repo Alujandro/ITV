@@ -64,8 +64,8 @@ public class Coches {
         return this.tipo;
     }
     
-    public static boolean matriculaValida(String mat){
-        return Pattern.matches(PATRON, mat);
+    public static boolean matriculaValida(String mat, Taller t1){
+        return Pattern.matches(PATRON, mat) && !t1.matriculaRepe(mat);
     }
     
     public void setMatricula(String mat){
@@ -81,7 +81,7 @@ public class Coches {
     }
     
     //LLENA COCHE DEBE DEVOLVER UN OBJETO COCHE PARA PODER HACER UNO NUEVO SIN COMPLICACIONES
-    public static Coches llenaCoche(){
+    public static Coches llenaCoche(Taller t1){
         Scanner enter=new Scanner(System.in);
         GestorIO nume=new GestorIO();
         String matri;
@@ -91,8 +91,8 @@ public class Coches {
         String entrar;
         System.out.print("Introduce la matrícula: ");
         entrar=enter.nextLine();
-        while (!matriculaValida(entrar)){
-            System.out.print("Intoduzca una matrícula válida: ");
+        while (!matriculaValida(entrar, t1)){
+            System.out.print("Intoduce una matrícula válida: ");
             entrar=enter.nextLine();
         }
         matri=entrar;
