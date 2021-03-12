@@ -30,7 +30,7 @@ public class GestorIO {
         try {
             entrada = Integer.parseInt(this.inString());
         } catch (Exception e) {
-            this.salir();
+            //this.salir();
         }
         return entrada;
     }
