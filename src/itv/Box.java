@@ -11,13 +11,13 @@ package itv;
  */
 public class Box {
     //Atributos
-    private final Coche[] boxe;
+    private final Vehículo[] boxe;
     public static final int FASES=4;
     //private static final String listaFases[]= {"Revisión de seguridad","Revisión sistema eléctrico","Revisión de humos","Revisión de frenos y dirección"};
     
     //Constructores
     public Box(){
-        this.boxe=new Coche[FASES];
+        this.boxe=new Vehículo[FASES];
         this.aNull();
     }
     
@@ -25,30 +25,30 @@ public class Box {
     public void avanzar(){
         for (int i=this.boxe.length-1; i>0; i--){
             if (this.boxe[i-1]==null){
-                this.boxe[i]=new Coche();
+                this.boxe[i]=new Vehículo();
             }
-            this.boxe[i]=new Coche(this.boxe[i-1]);
+            this.boxe[i]=new Vehículo(this.boxe[i-1]);
         }
-        this.boxe[0]=new Coche();
+        this.boxe[0]=new Vehículo();
         System.out.println("Cambio de fase completado");
     }
     
-    public Coche getVehiculo(int i){ 
+    public Vehículo getVehiculo(int i){ 
         return boxe[i];
     }
     
-    public Coche[] getBoxe(){
+    public Vehículo[] getBoxe(){
         return this.boxe;
     }
     
     public final void aNull(){
         for (int i=0; i<this.boxe.length; i++){
-            this.boxe[i]=new Coche();
+            this.boxe[i]=new Vehículo();
         }
     }
     
-    public void setVehiculoNuevo(Coche c){
-        this.boxe[0]=new Coche(c);
+    public void setVehiculoNuevo(Vehículo c){
+        this.boxe[0]=new Vehículo(c);
     }
     
     public void mostrarBox(){
