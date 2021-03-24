@@ -11,14 +11,14 @@ package itv;
  */
 public class ColaGeneral {
     //Atributos
-    private final Coches[] cola;
+    private final Coche[] cola;
     private static final int TOTAL=50;
     
     //Constructores
     public ColaGeneral(){
-        this.cola=new Coches[TOTAL];
+        this.cola=new Coche[TOTAL];
         for (int i=0; i<cola.length; i++){
-            this.cola[i]=new Coches();
+            this.cola[i]=new Coche();
         }
     }
     
@@ -26,28 +26,28 @@ public class ColaGeneral {
     public void avanzar(){
         for (int i=0; i<this.cola.length-1; i++){
             if (this.cola[i].getMatricula()==null){
-                this.cola[i-1]=new Coches();
+                this.cola[i-1]=new Coche();
                 break;
             }
-            this.cola[i]=new Coches(this.cola[i+1]);
+            this.cola[i]=new Coche(this.cola[i+1]);
         }
-        this.cola[cola.length-1]=new Coches();
+        this.cola[cola.length-1]=new Coche();
     }
     
-    public Coches getSiguiente(){
+    public Coche getSiguiente(){
         if (this.cola[0]==null) {
-            return new Coches();
+            return new Coche();
         }
         if (this.cola[0].getMatricula()==null){
-            return new Coches();
+            return new Coche();
         }
-        return new Coches(this.cola[0]);
+        return new Coche(this.cola[0]);
     }
     
-    public void setCoche(Coches c){
+    public void setCoche(Coche c){
         for (int i=0;i<cola.length; i++){
             if (cola[i].getMatricula()==null) {
-                this.cola[i]=new Coches(c);
+                this.cola[i]=new Coche(c);
                 System.out.println("Vehículo introducido satisfactoriamente");
                 break;
             }
