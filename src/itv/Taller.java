@@ -133,8 +133,12 @@ public class Taller {
     
     public boolean sinBoxLibre(){
         for (int i=0; i<this.todas.length; i++){
-            if (this.todas[i].getVehiculo(0).getMatricula()==null){
+            if (this.todas[i]==null){
                 return false;
+            } else{
+                if (this.todas[i].getVehiculo(0).getMatricula()==null){
+                    return false;
+                }
             }
         }
         return true;
@@ -142,15 +146,24 @@ public class Taller {
     
     public boolean matriculaRepe(String mat){
         for (int i=0; i<cola.getTOTAL(); i++){
-            if (mat.equals(cola.getSiguiente().getMatricula())){
-                return true;
+            if (cola.getSiguiente()!=null){
+                if (mat.equals(cola.getSiguiente().getMatricula())){
+                    return true;
+                }
+            } else {
+                break;
             }
+            
         }
         
         for (int i=0; i<todas.length; i++){
             for (int j=0; j<todas[i].getBoxe().length; j++){
-                if (mat.equals(todas[i].getVehiculo(j).getMatricula())){
-                    return true;
+                if (todas[i]!=null){
+                    if (mat.equals(todas[i].getVehiculo(j).getMatricula())){
+                        return true;
+                    }
+                } else {
+                    break;
                 }
             }
         }
