@@ -54,7 +54,7 @@ public class Box {
     public void mostrarBox(){
         for (int i=0; i<boxe.length; i++){
             if (boxe[i]!=null){
-                if (boxe[i].getMatricula()==null){
+                if (boxe[i]==null){
                     System.out.println("Fase "+(i+1)+": Vacío");
                 } else {
                     System.out.println("Fase "+(i+1)+": "+boxe[i].toString());
