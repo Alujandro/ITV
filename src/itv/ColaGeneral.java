@@ -25,7 +25,7 @@ public class ColaGeneral {
     //Metodos
     public void avanzar(){
         for (int i=0; i<this.cola.length-1; i++){
-            if (this.cola[i].getMatricula()==null){
+            if (this.cola[i]==null){
                 this.cola[i-1]=new Vehículo();
                 break;
             }
@@ -38,7 +38,7 @@ public class ColaGeneral {
         if (this.cola[0]==null) {
             return new Vehículo();
         }
-        if (this.cola[0].getMatricula()==null){
+        if (this.cola[0]==null){
             return new Vehículo();
         }
         return new Vehículo(this.cola[0]);
@@ -46,7 +46,7 @@ public class ColaGeneral {
     
     public void setCoche(Vehículo c){
         for (int i=0;i<cola.length; i++){
-            if (cola[i].getMatricula()==null) {
+            if (cola[i]==null) {
                 this.cola[i]=new Vehículo(c);
                 System.out.println("Vehículo introducido satisfactoriamente");
                 break;
@@ -59,11 +59,11 @@ public class ColaGeneral {
     }
     
     public boolean meterEnBox(Box b){
-        if (this.getSiguiente().getMatricula()==null){
+        if (this.getSiguiente()==null){
             System.out.println("La cola de entrada está vacía");
             return true;
         } else {
-            if (b.getVehiculo(0).getMatricula()!=null){
+            if (b.getVehiculo(0)!=null){
                 System.out.println("No hay hueco en el Box");
                 return false;
             } else {
