@@ -77,7 +77,7 @@ public class Taller {
         switch (num) {
             case 1:
                 //Código
-                cola.setCoche(Coche.llenaCoche(this));
+                cola.setCoche(Vehículo.llenaCoche(this));
                 return false;
             case 2:
                 //Código
