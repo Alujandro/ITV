@@ -5,7 +5,7 @@
  */
 package itv;
 
-import vehiculos.Vehiculo;
+import itv.vehiculos.Vehiculo;
 
 /**
  *
