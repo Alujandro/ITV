@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package itv;
-import vehiculos.Vehiculo;
+import itv.vehiculos.Vehiculo;
 import itv.util.GestorIO;
 
 /**
