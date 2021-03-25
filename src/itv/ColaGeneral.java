@@ -5,20 +5,22 @@
  */
 package itv;
 
+import vehiculos.Vehiculo;
+
 /**
  *
  * @author ciclost
  */
 public class ColaGeneral {
     //Atributos
-    private final Vehículo[] cola;
+    private final Vehiculo[] cola;
     private static final int TOTAL=50;
     
     //Constructores
     public ColaGeneral(){
-        this.cola=new Vehículo[TOTAL];
+        this.cola=new Vehiculo[TOTAL];
         for (int i=0; i<cola.length; i++){
-            this.cola[i]=new Vehículo();
+            this.cola[i]=new Vehiculo();
         }
     }
     
@@ -26,28 +28,28 @@ public class ColaGeneral {
     public void avanzar(){
         for (int i=0; i<this.cola.length-1; i++){
             if (this.cola[i]==null){
-                this.cola[i-1]=new Vehículo();
+                this.cola[i-1]=new Vehiculo();
                 break;
             }
-            this.cola[i]=new Vehículo(this.cola[i+1]);
+            this.cola[i]=new Vehiculo(this.cola[i+1]);
         }
-        this.cola[cola.length-1]=new Vehículo();
+        this.cola[cola.length-1]=new Vehiculo();
     }
     
-    public Vehículo getSiguiente(){
+    public Vehiculo getSiguiente(){
         if (this.cola[0]==null) {
-            return new Vehículo();
+            return new Vehiculo();
         }
         if (this.cola[0]==null){
-            return new Vehículo();
+            return new Vehiculo();
         }
-        return new Vehículo(this.cola[0]);
+        return new Vehiculo(this.cola[0]);
     }
     
-    public void setCoche(Vehículo c){
+    public void setCoche(Vehiculo c){
         for (int i=0;i<cola.length; i++){
             if (cola[i]==null) {
-                this.cola[i]=new Vehículo(c);
+                this.cola[i]=new Vehiculo(c);
                 System.out.println("Vehículo introducido satisfactoriamente");
                 break;
             }

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package itv;
+import vehiculos.Vehiculo;
 import itv.util.GestorIO;
 
 /**
@@ -77,7 +78,7 @@ public class Taller {
         switch (num) {
             case 1:
                 //Código
-                cola.setCoche(Vehículo.llenaCoche(this));
+                cola.setCoche(Vehiculo.llenaCoche(this));
                 return false;
             case 2:
                 //Código
