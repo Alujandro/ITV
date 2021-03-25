@@ -24,6 +24,7 @@ public class Vehiculo {
     protected int centimetroscubicos;
     public static final String PATRON="\\d{4}[A-Z]{3}";
     public static final String[] TIPOS={"Coche","Microbús","Furgoneta","Camión"};
+    public static final double BASE=15;
     
     //Constructores
     public Vehiculo(String ma, String mo, String ti){
