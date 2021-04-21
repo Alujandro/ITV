@@ -5,7 +5,11 @@
  */
 package itv;
 
+import itv.vehiculos.Camion;
+import itv.vehiculos.Coche;
+import itv.vehiculos.Microbus;
 import itv.vehiculos.Vehiculo;
+import itv.vehiculos.VehiculoDeCarga;
 
 /**
  *
@@ -24,14 +28,21 @@ public class Box {
     }
     
     //Métodos
-    public void avanzar(){
+    public void avanzar(ColaPago c){
         for (int i=this.boxe.length-1; i>0; i--){
-            if (this.boxe[i-1]==null){
-                this.boxe[i]=new Vehiculo();
+            if (i==this.boxe.length-1 && this.boxe[i]!=null){
+                c.llenaCola(this.boxe[i]);
             }
-            this.boxe[i]=new Vehiculo(this.boxe[i-1]);
+            if (this.boxe[i-1]==null){
+                this.boxe[i]=null;
+            }
+            if (this.boxe[i-1]==null){
+                this.boxe[i]=null;
+            } else {
+                this.boxe[i]=meteCola(this.boxe[i-1]); //Usar método específico
+            }
         }
-        this.boxe[0]=new Vehiculo();
+        this.boxe[0]=null;
         System.out.println("Cambio de fase completado");
     }
     
@@ -45,12 +56,27 @@ public class Box {
     
     public final void aNull(){
         for (int i=0; i<this.boxe.length; i++){
-            this.boxe[i]=new Vehiculo();
+            this.boxe[i]=null;
         }
     }
     
     public void setVehiculoNuevo(Vehiculo c){
-        this.boxe[0]=new Vehiculo(c);
+        this.boxe[0]=meteCola(c); //Método específico
+    }
+    
+    public Vehiculo meteCola(Vehiculo c){
+        switch (c.getTipo()) {
+            case 1:
+                return new Coche(c);
+            case 2:
+                return new Microbus(c);
+            case 3:
+                return new VehiculoDeCarga(c);
+            case 4:
+                return new Camion(c);
+            default:
+                return new Coche(c);
+        }
     }
     
     public void mostrarBox(){

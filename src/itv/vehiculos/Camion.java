@@ -12,6 +12,15 @@ package itv.vehiculos;
 public class Camion extends VehiculoDeCarga{
     private static final double FIJO=40;
     
+    public Camion (String matri, String mode, int tip, int cili, int plaz, int cece){
+        super(matri, mode, tip, cili, plaz, cece);
+    }
+    
+    public Camion(Vehiculo co){
+        super(co);
+        
+    }
+    
     @Override
     public double calculaCoste(){
         double resultado;

@@ -10,7 +10,16 @@ package itv.vehiculos;
  * @author ciclost
  */
 public class Microbus extends Vehiculo{
+    public Microbus (String matri, String mode, int tip, int cili, int plaz, int cece){
+        super(matri, mode, tip, cili, plaz, cece);
+    }
     
+    public Microbus(Vehiculo co){
+        super(co);
+        
+    }
+    
+    @Override
     public double calculaCoste(){
         double resultado=0;
         if (this.getCentimetrosCubicos()>1200){

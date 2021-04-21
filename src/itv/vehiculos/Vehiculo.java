@@ -14,11 +14,11 @@ import itv.util.GestorIO;
  *
  * @author ciclost
  */
-public class Vehiculo {
+public abstract class Vehiculo {
     //Atributos
     protected String matricula;
     protected String modelo;
-    protected String tipo;
+    protected int tipo;
     protected int plazas;
     protected int cilindros;
     protected int centimetroscubicos;
@@ -27,14 +27,17 @@ public class Vehiculo {
     public static final double BASE=15;
     
     //Constructores
-    public Vehiculo(String ma, String mo, String ti){
+    public Vehiculo(){
+        
+    }
+    public Vehiculo(String ma, String mo, int ti){
         //Usado principalmente para pruebas
         this.matricula=ma;
         this.modelo=mo;
         this.tipo=ti;
     }
     
-    public Vehiculo(String ma, String mo, String ti, int p, int c, int cc){
+    public Vehiculo(String ma, String mo, int ti, int p, int c, int cc){
         this.matricula=ma;
         this.modelo=mo;
         this.tipo=ti;
@@ -43,14 +46,6 @@ public class Vehiculo {
         this.centimetroscubicos=cc;
     }
     
-    public Vehiculo(){
-        this.matricula=null;
-        this.modelo=null;
-        this.tipo=null;
-        this.plazas=0;
-        this.cilindros=0;
-        this.centimetroscubicos=0;
-    }
     
     public Vehiculo(Vehiculo co){
         if (co!=null){
@@ -78,10 +73,7 @@ public class Vehiculo {
         return this.modelo;
     }
     
-    public String getTipo(){
-        if (this.tipo==null){
-            return null;
-        }
+    public int getTipo(){
         return this.tipo;
     }
     
@@ -110,7 +102,7 @@ public class Vehiculo {
     }
     
     public void setTipo(int i){
-        this.tipo=TIPOS[i-1];
+        this.tipo=i-1;
     }
     
     public void setPlazas(int i){
@@ -131,8 +123,7 @@ public class Vehiculo {
         GestorIO nume=new GestorIO();
         String matri;
         String mode;
-        String tip;
-        int cili, plaz, num, cece;
+        int cili, plaz, num, cece, tip;
         String entrar;
         System.out.print("Introduce la matrícula: ");
         entrar=enter.nextLine();
@@ -152,13 +143,43 @@ public class Vehiculo {
                 break;
             }
         }
-        tip=TIPOS[num-1];
+        tip=num-1;
         cili=llenaCili(num);
         plaz=llenaPlazas(num);
         cece=llenaCC();
         
         
-        return new Vehiculo(matri,mode,tip,cili,plaz,cece);
+        return newVehiculo(matri, mode, tip, cili, plaz, cece); //Esto está para ser reparado haciendo una llamada dependiendo de num
+    }
+    
+    public static Vehiculo newVehiculo(String matri, String mode, int tip, int cili, int plaz, int cece){ //Retocar para que funcione correctamente
+        switch (tip) {
+            case 1:
+                return new Coche(matri, mode, tip, cili, plaz, cece);
+            case 2:
+                return new Microbus(matri, mode, tip, cili, plaz, cece);
+            case 3:
+                return new VehiculoDeCarga(matri, mode, tip, cili, plaz, cece);
+            case 4:
+                return new Camion(matri, mode, tip, cili, plaz, cece);
+            default:
+                return new Coche(matri, mode, tip, cili, plaz, cece);
+        }
+    }
+    
+    public static Vehiculo sustitutoCopia(Vehiculo co){ //Retocar para que funcione correctamente
+        switch (co.getTipo()) {
+            case 1:
+                return new Coche(co);
+            case 2:
+                return new Microbus(co);
+            case 3:
+                return new VehiculoDeCarga(co);
+            case 4:
+                return new Camion(co);
+            default:
+                return new Coche(co);
+        }
     }
     
     public static int llenaPlazas(int uno){
@@ -242,9 +263,11 @@ public class Vehiculo {
         }
     }
     
+    public abstract double calculaCoste();
+    
     @Override
     public String toString(){
-        return "Matrícula: "+this.matricula+" Modelo: "+this.modelo+" Tipo: "+this.tipo;
+        return "Matrícula: "+this.matricula+" Modelo: "+this.modelo+" Tipo: "+TIPOS[this.getTipo()]; //Cambiado el funcionamiento de tipo
     }
     
 }

@@ -18,6 +18,17 @@ public class Coche extends Vehiculo{
     //Vehículos de carga: PMA(en toneladas) 3€ multiplicado por PMA si menos de 10 cilindros 4*PMA si tiene 10 o más
     //Camiones: se le añaden 40€ a lo calculado antes y se le añade un 20% +20€ si tiene más de 2000cc
     
+    //Constructor
+    public Coche (String matri, String mode, int tip, int cili, int plaz, int cece){
+        super(matri, mode, tip, cili, plaz, cece);
+    }
+    
+    public Coche(Vehiculo co){
+        super(co);
+        
+    }
+    
+    @Override
     public double calculaCoste(){
         double resultado=0;
         if (this.getCentimetrosCubicos()>1200){
