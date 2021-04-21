@@ -24,6 +24,6 @@ public class EsSocioException extends Exception{
     
     @Override
     public String toString(){
-        return "Ya tiene tarjeta";
+        return super.toString();
     }
 }

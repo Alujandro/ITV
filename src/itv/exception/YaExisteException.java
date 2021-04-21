@@ -24,6 +24,6 @@ public class YaExisteException extends Exception{
     
     @Override
     public String toString(){
-        return "El vehículo con matrícula " + getVehiculoRepetido() + " ya existe";
+        return super.toString()+" matrícula "+getVehiculoRepetido();
     }
 }

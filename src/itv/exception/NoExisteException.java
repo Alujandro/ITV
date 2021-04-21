@@ -24,6 +24,6 @@ public class NoExisteException extends Exception{
     
     @Override
     public String toString(){
-        return " " + getCodigo() + " ";
+        return super.toString();
     }
 }

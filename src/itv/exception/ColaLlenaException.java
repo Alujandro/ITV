@@ -24,6 +24,6 @@ public class ColaLlenaException extends Exception{
     
     @Override
     public String toString(){
-        return " " + getLongitudCola() + " ";
+        return super.toString();
     }
 }

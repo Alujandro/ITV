@@ -24,7 +24,7 @@ public class EsVipException extends Exception{
     
     @Override
     public String toString(){
-        return "Ya es vip";
+        return super.toString();
     }
     
 }
